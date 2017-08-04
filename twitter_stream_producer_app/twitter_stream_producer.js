@@ -12,6 +12,12 @@ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
 express or implied. See the License for the specific language governing
 permissions and limitations under the License.
 ***/
+/***
+Modifications
+08/03/2017 JMT	Change settings in tweet feed.
+
+
+***/
 
 'use strict';
 
@@ -88,15 +94,17 @@ function twitterStreamProducer(firehose) {
 
   function _sendToFirehose() {
     // var locations = [ '-180,-90,180,90' ]; //all the world
-    var stream = T.stream('statuses/filter', { locations: config.locations });
+    // for below, change from 'statuses/filter to statuses/sample
+    // var stream = T.stream('statuses/filter', { locations: config.locations });
+    var stream = T.stream('statuses/sample');
 
     var records = [];
     var record = {};
     var recordParams = {};
     stream.on('tweet', function (tweet) {
-       if (tweet.coordinates){
-            if (tweet.coordinates !== null){ 
-              console.log(JSON.stringify(tweet));
+       if (tweet.lang){
+            if (tweet.lang === 'en'){ 
+              //console.log(JSON.stringify(tweet));
               recordParams = {
                   DeliveryStreamName: config.firehose.DeliveryStreamName,
                   Record: {
