@@ -15,6 +15,7 @@ permissions and limitations under the License.
 /***
 Modifications
 08/03/2017 JMT	Change settings in tweet feed.
+08/24/2017 JMT	add code to caputre connect, connected, reconnect, warning, and limit messages
 
 
 ***/
@@ -120,6 +121,24 @@ function twitterStreamProducer(firehose) {
           }
         }
     });
+    // add additional code to capture other messages from twitter (JMT 8/24/2107):
+    stream.on('connect', function (request) {
+        console.log('connect: '+JSON.stringify(request));
+    });
+    stream.on('connected', function (response) {
+        console.log('connected: '+JSON.stringify(response));
+    });
+    stream.on('reconnect', function (request, response, connectInterval) {
+        console.log('reconnect request: '+JSON.stringify(request));
+        console.log('reconnect response: '+JSON.stringify(response));
+        console.log('reconnect connectInterval: '+JSON.stringify(connectInterval));
+    });
+    stream.on('warning', function (warning) {
+        console.log('warning: '+JSON.stringify(warning));
+    });
+    stream.on('limit', function (limitMessage) {
+        console.log('limitMessage: '+ JSON.stringify(limitMessage));
+    });    
   }
 
 
