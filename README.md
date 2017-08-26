@@ -7,8 +7,11 @@ Javascript code run in NODE js to get twitter sample stream and use Kiniesis Fir
 ## Getting Started
 
 The code for this app was from the blog post by Assaf Mentzer at: (https://aws.amazon.com/blogs/big-data/building-a-near-real-time-discovery-platform-with-aws/)
+The above, well written, blog post explains how to use this node js app, indicates where to get Assaf Mentzer's code, and put this app into context with the overall twitter to elastic search pipeline.
 
 ### Command to start process on EC2 as a nohup job running in the background
+
+Added to the code set is a bash script to start the node js app running in the background on an EC2 server.
 
 ```
 sh run_twitter_stream_producer_app_w_nohup.sh
