@@ -11,9 +11,10 @@ The above, well written, blog post explains how to use this node js app, indicat
 
 ### Command to start process on EC2 as a nohup job running in the background
 
-Added to the code set is a bash script to start the node js app running in the background on an EC2 server.
+Added to the code set is a bash script, run_twitter_stream_producer_app_w_nohup.sh, to start the node js app running in the background on an EC2 server.
 
 ```
+cd ~/applications/twitter_stream_producer_app
 sh run_twitter_stream_producer_app_w_nohup.sh
 ```
 
