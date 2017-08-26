@@ -22,4 +22,3 @@ sh run_twitter_stream_producer_app_w_nohup.sh
 
 * Purple Booth for a nice readme.md template (https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
 
-:e-mail: email me: _jmtroy2@illinois.edu_
